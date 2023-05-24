@@ -96,3 +96,19 @@
         resource_tags:
           Name: int-gateway-setup
       register: int-gateway_out
+
+    - name: Set up public subnet route table 
+      ec2_vpc_route_table:
+        vpc_id: "{{ vpcout.vpc.id }}"
+        region: "{{ region }}"
+        tags:
+          Name: public-route-table
+        subnets:
+          - "{{ pubsub1_out.subnet.id }}"
+          - "{{ pubsub2_out.subnet.id }}"
+          - "{{ pubsub3_out.subnet.id }}"
+
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{ int-gateway_out.gateway_id }}"
+        register: pub-route-table_out
