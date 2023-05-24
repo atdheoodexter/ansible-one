@@ -53,4 +53,5 @@
           Project: ansible-project
           Owner: Atdheoo
         group_id: "{{ bastion-sg_out.group_id }}"
+        vpc_subnet_id: "{{ pubsub1id }}"
       register: bastion-host_out
