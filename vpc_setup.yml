@@ -87,3 +87,12 @@
         resource_tags:
           Name: priv-sub-3
       register: privsub3_out
+
+    - name: Internet gateway setup 
+      ec2_vpc_igw:
+        vpc_id: "{{ vpcout.vpc.id }}"
+        region: "{{ region }}"
+        state: "{{ state }}"
+        resource_tags:
+          Name: int-gateway-setup
+      register: int-gateway_out
