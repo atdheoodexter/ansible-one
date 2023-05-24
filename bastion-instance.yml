@@ -1,0 +1,56 @@
+---
+- name: Setup bastion host 
+  hosts: localhost
+  connection: local
+  gather_facts: no 
+  tasks:
+    - name: Import vpc setup variable 
+      include_vars: vars/bastion_setup
+
+    - name: Import vpc setup variable
+      include_vars: vars/output_vars 
+
+    - name: Create ec2 key
+      ec2_key:
+        name: bastion-key
+        region: "{{ region }}"
+      register: key_out
+
+    - name: Save private key into file bastion-key.pem
+      copy:
+        content: "{{ key_out.key.private_key }}"
+        dest: "./bastion-key.pem"
+        mode: 0600
+      when: key_out.changed
+
+    - name: Create security group for bastion host 
+      ec2_group:
+        name: bastion-host-sg
+        description: Allow port 22 from everywhere and all port with in security group
+        region: "{{ region }}"
+        vpc_id: "{{ vpcid }}" 
+        rules:
+          - port: tcp
+            from_port: 22
+            to_port: 22
+            cidr_ip: "{{ MYIP }}"
+        register: bastion-sg_out
+
+    - name: Creating bastion host 
+      ec2: 
+        key_name: bastion-key
+        region: "{{ region }}"
+        instance_type: t2.micro
+        image: "{{ bastion_ami }}"
+        wait: yes
+        wait_timeout: 300
+        instance_tags: 
+          Name: ansible-project
+          Owner: Atdheoo
+        exact_count: 1
+        count_tag:
+          Name: "bastion_host"
+          Project: ansible-project
+          Owner: Atdheoo
+        group_id: "{{ bastion-sg_out.group_id }}"
+      register: bastion-host_out
