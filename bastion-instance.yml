@@ -19,13 +19,13 @@
     - name: Save private key into file bastion-key.pem
       copy:
         content: "{{ key_out.key.private_key }}"
-        dest: "./bastion-key.pem"
+        dest: "./bastion_key.pem"
         mode: 0600
       when: key_out.changed
 
     - name: Create security group for bastion host 
       ec2_group:
-        name: bastion-host-sg
+        name: bastion_host_sg
         description: Allow port 22 from everywhere and all port with in security group
         region: "{{ region }}"
         vpc_id: "{{ vpcid }}" 
@@ -34,24 +34,24 @@
             from_port: 22
             to_port: 22
             cidr_ip: "{{ MYIP }}"
-      register: bastion-sg_out
+      register: bastion_sg_out
 
     - name: Creating bastion host 
       ec2: 
-        key_name: bastion-key
+        key_name: bastion_key
         region: "{{ region }}"
         instance_type: t2.micro
         image: "{{ bastion_ami }}"
         wait: yes
         wait_timeout: 300
         instance_tags: 
-          Name: ansible-project
+          Name: ansible_project
           Owner: Atdheoo
         exact_count: 1
         count_tag:
           Name: "bastion_host"
-          Project: ansible-project
+          Project: ansible_project
           Owner: Atdheoo
-        group_id: "{{ bastion-sg_out.group_id }}"
+        group_id: "{{ bastion_sg_out.group_id }}"
         vpc_subnet_id: "{{ pubsub1id }}"
-      register: bastion-host_out
+      register: bastion_host_out
