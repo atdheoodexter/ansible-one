@@ -111,7 +111,7 @@
         routes:
           - dest: 0.0.0.0/0
             gateway_id: "{{ int_gateway_out.gateway_id }}"
-        register: pub_route_table_out
+      register: pub_route_table_out
 
     - name: Create nat gateway and allocate new elastic IP 
       ec2_vpc_nat_gateway:
