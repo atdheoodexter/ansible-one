@@ -11,6 +11,3 @@ pub_route_table_id: rtb-0974474c97a0a4b98
 nat_gateway-id: nat-08ea3beaa866bfd88
 priv_route_table-id: rtb-077a3f17fa9ab18e5
 bastion_sg_id: 
-# BEGIN ANSIBLE MANAGED BLOCK
-bastion_sg_id: sg-02fe175bc79c580da
-# END ANSIBLE MANAGED BLOCK
