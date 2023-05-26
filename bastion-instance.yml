@@ -16,7 +16,7 @@
         region: "{{ region }}"
       register: key_out
 
-    - name: Save private key into file bastion-key.pem
+    - name: Save private key into file bastion_key.pem
       copy:
         content: "{{ key_out.key.private_key }}"
         dest: "./bastion_key.pem"
@@ -49,7 +49,7 @@
           Owner: Atdheoo
         exact_count: 1
         count_tag:
-          Name: "bastion_host"
+          Name: "bastion_host_sg"
           Project: ansible_project
           Owner: Atdheoo
         group_id: "{{ bastion_sg_out.group_id }}"
