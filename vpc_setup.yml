@@ -110,8 +110,8 @@
 
         routes:
           - dest: 0.0.0.0/0
-            gateway_id: "{{ int-gateway_out.gateway_id }}"
-        register: pub-route-table_out
+            gateway_id: "{{ int_gateway_out.gateway_id }}"
+        register: pub_route_table_out
 
     - name: Create nat gateway and allocate new elastic IP 
       ec2_vpc_nat_gateway:
@@ -120,7 +120,7 @@
         wait: yes
         region: "{{ region }}"
         if_exist_do_not_create: true
-      register: nat-gateway_out
+      register: nat_gateway_out
 
     - name: Set up private subnet route table 
       ec2_vpc_route_table:
@@ -134,8 +134,8 @@
           - "{{ privsub3_out.subnet.id }}"
         routes:
           - dest: 0.0.0.0/0
-            gateway_id: "{{ nat-gateway_out.nat_gateway_id }}"
-        register: priv-route-table_out
+            gateway_id: "{{ nat_gateway_out.nat_gateway_id }}"
+      register: priv_route_table_out
 
     - debug:
         var: "{{ item }}"
@@ -147,10 +147,10 @@
         - privsub1_out.subnet.id
         - privsub2_out.subnet.id
         - privsub3_out.subnet.id
-        - int-gateway_out.gateway_id
-        - pub-route-table_out.route_table.id
-        - nat-gateway_out.nat_gateway_id
-        - priv-route-table_out.route_table.id
+        - int_gateway_out.gateway_id
+        - pub_route_table_out.route_table.id
+        - nat_gateway_out.nat_gateway_id
+        - priv_route_table_out.route_table.id
 
     - set_fact:
         vpc_id: "{{ vpcout.vpc.id }}"
@@ -160,13 +160,13 @@
         privsub1id: "{{ privsub1_out.subnet.id }}"
         privsub2id: "{{ privsub2_out.subnet.id }}"
         privsub3id: "{{ privsub3_out.subnet.id }}"
-        igwid: "{{ int-gateway_out.gateway_id }}"
-        pub-route-table-id: "{{ pub-route-table_out.route_table.id }}"
-        nat-gateway-id: "{{ nat-gateway_out.nat_gateway_id }}"
-        priv-route-table-id: "{{ priv-route-table_out.route_table.id }}"
+        igwid: "{{ int_gateway_out.gateway_id }}"
+        pub_route_table-id: "{{ pub_route_table_out.route_table.id }}"
+        nat_gateway_id: "{{ nat_gateway_out.nat_gateway_id }}"
+        priv_route_table_id: "{{ priv_route_table_out.route_table.id }}"
         cacheable: yes
     
     - name: Create variables file for vpc output 
       copy:
-        content: "vpc_id: {{ vpcout.vpc.id }}\npubsub1id: {{ pubsub1_out.subnet.id }}\npubsub2id: {{ pubsub2_out.subnet.id }}\npubsub3id: {{ pubsub3_out.subnet.id }}\nprivsub1id: {{ privsub1_out.subnet.id }}\nprivsub2id: {{ privsub2_out.subnet.id }}\nprivsub3id: {{ privsub3_out.subnet.id }}\nigwid: {{ int-gateway_out.gateway_id }}\npub-route-table-id: {{ pub-route-table_out.route_table.id }}\nnat-gateway-id: {{ nat-gateway_out.nat_gateway_id }}\npriv-route-table-id: {{ priv-route-table_out.route_table.id }}"
+        content: "vpc_id: {{ vpcout.vpc.id }}\npubsub1id: {{ pubsub1_out.subnet.id }}\npubsub2id: {{ pubsub2_out.subnet.id }}\npubsub3id: {{ pubsub3_out.subnet.id }}\nprivsub1id: {{ privsub1_out.subnet.id }}\nprivsub2id: {{ privsub2_out.subnet.id }}\nprivsub3id: {{ privsub3_out.subnet.id }}\nigwid: {{ int_gateway_out.gateway_id }}\npub_route_table_id: {{ pub_route_table_out.route_table.id }}\nnat_gateway-id: {{ nat_gateway_out.nat_gateway_id }}\npriv_route_table-id: {{ priv_route_table_out.route_table.id }}"
         dest: vars/output_vars
