@@ -1,0 +1,8 @@
+---
+- name: Setup stack 
+  hosts: localhost 
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Import vpc setup variable
+      include_vars: vars/output_vars
