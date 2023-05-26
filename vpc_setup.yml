@@ -95,7 +95,7 @@
         state: "{{ state }}"
         resource_tags:
           Name: int-gateway-setup
-      register: int-gateway_out
+      register: int_gateway_out
 
     - name: Set up public subnet route table 
       ec2_vpc_route_table:
