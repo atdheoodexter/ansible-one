@@ -5,4 +5,20 @@
   gather_facts: no
   tasks:
     - name: Import vpc setup variable
-      include_vars: vars/output_vars
+      include_vars: vars/vpc-output_vars
+
+    - name: Import setup variable
+      include_vars: vars/stack_setup
+
+    - name: Create ec2 key
+      ec2_key:
+        name: key_instance
+        region: "{{ region }}"
+      register: key_out
+
+    - name: Save private key into file login_key.pem
+      copy:
+        content: "{{ key_out.key.private_key }}"
+        dest: "./login_key.pem"
+        mode: 0600
+      when: key_out.changed
