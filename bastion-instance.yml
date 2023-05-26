@@ -12,7 +12,7 @@
 
     - name: Create ec2 key
       ec2_key:
-        name: bastion-key
+        name: bastion_key
         region: "{{ region }}"
       register: key_out
 
