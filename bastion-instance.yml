@@ -28,7 +28,7 @@
         name: bastion_host_sg
         description: Allow port 22 from everywhere and all port with in security group
         region: "{{ region }}"
-        vpc_id: "{{ vpcid }}" 
+        vpc_id: "{{ vpc_id }}" 
         rules:
           - port: tcp
             from_port: 22
