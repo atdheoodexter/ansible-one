@@ -10,3 +10,4 @@ igwid: igw-0cc426f65ef5be227
 pub_route_table_id: rtb-0974474c97a0a4b98
 nat_gateway-id: nat-08ea3beaa866bfd88
 priv_route_table-id: rtb-077a3f17fa9ab18e5
+bastion_sg_id: 
