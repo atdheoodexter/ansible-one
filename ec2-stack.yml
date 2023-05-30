@@ -207,7 +207,6 @@
         src: login_key.pem
         dest: provision-stack/login_key.pem
         mode: '0400'
-        remote_src: yes
 
     - name: Insert/Update Inventory file provision-stack/inventory-pro
       blockinfile:
