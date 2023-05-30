@@ -12,5 +12,5 @@ nat_gateway-id: nat-072bc12a9ef12bcc5
 priv_route_table-id: rtb-0a0afd18f8d8291c8
 
 # BEGIN ANSIBLE MANAGED BLOCK
-bastion_sg_id: sg-02fe175bc79c580da
+bastion_sg_id: sg-08d2c56121c854fc2
 # END ANSIBLE MANAGED BLOCK
