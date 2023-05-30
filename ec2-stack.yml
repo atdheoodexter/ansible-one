@@ -176,7 +176,7 @@
 
     - local_action:
         module: ec2_elb_lb
-        name: "elastic_load_balancer"
+        name: "elbalancer"
         region: "{{ region }}"
         state: present 
         instance_ids:
