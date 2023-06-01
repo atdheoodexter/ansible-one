@@ -10,7 +10,13 @@ igwid: igw-06fbe9730e6bcbbc9
 pub_route_table_id: rtb-0f476f621afc92f8c
 nat_gateway-id: nat-0419fc6933bd24deb
 priv_route_table-id: rtb-0d5a25d8a2770bc4f
+<<<<<<< HEAD
+# BEGIN ANSIBLE MANAGED BLOCK
+bastion_sg_id: sg-0eef51b587dec713a
+# END ANSIBLE MANAGED BLOCK
+=======
 
 # BEGIN ANSIBLE MANAGED BLOCK
 bastion_sg_id: sg-0eef51b587dec713a
 # END ANSIBLE MANAGED BLOCK
+>>>>>>> 2e169dd6e4a2b6ba403f5ff6f00ac4a760b73d51
