@@ -22,7 +22,7 @@ ansible_user=ubuntu
 ansible_ssh_private_key_file=login_key.pem
 # END ANSIBLE MANAGED BLOCK
 # BEGIN ANSIBLE MANAGED BLOCK
-web01 ansible_host=172.20.4.111 app01 ansible_host=172.20.4.12 rmq01 ansible_host=172.20.4.31 mc01 ansible_host=172.20.4.236 db01 ansible_host=172.20.4.59 cntl ansible_host=127.0.0.1 ansible_connection=local
+web01 ansible_host=172.20.4.158 app01 ansible_host=172.20.4.225 rmq01 ansible_host=172.20.4.15 mc01 ansible_host=172.20.4.50 db01 ansible_host=172.20.4.125 cntl ansible_host=127.0.0.1 ansible_connection=local
 [websrvgrp] web01
 [appsrvgrp] app01
 [rmqsrvgrp] rmq01
