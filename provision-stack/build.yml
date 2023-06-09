@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: Install Jdk, Maven, Git
-      apt:
+      yum:
         name: "{{ item }}"
         state: present 
         update_cache: yes
