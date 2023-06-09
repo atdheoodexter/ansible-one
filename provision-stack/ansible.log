@@ -214,3 +214,129 @@ begin:end:step
 2023-06-09 17:30:20,920 p=15885 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 2023-06-09 17:30:20,920 p=15885 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 2023-06-09 17:30:20,920 p=15885 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:31:52,912 p=16054 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro with yaml plugin: We were unable to read either as JSON
+nor YAML, these are the errors we got from each: JSON: Expecting value: line 1 column 1 (char 0)  Syntax Error while loading YAML.   did not
+find expected <document start>  The error appears to be in '/home/ubuntu/ansible-one/provision-stack/inventory-pro': line 25, column 1, but
+may be elsewhere in the file depending on the exact syntax problem.  The offending line appears to be:  # BEGIN ANSIBLE MANAGED BLOCK web01
+ansible_host=172.20.4.158 ^ here
+
+2023-06-09 17:31:52,913 p=16054 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro with ini plugin: host range must be begin:end or
+begin:end:step
+
+2023-06-09 17:31:52,913 p=16054 u=ubuntu n=ansible | [WARNING]: Unable to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro as an inventory source
+
+2023-06-09 17:31:52,913 p=16054 u=ubuntu n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-06-09 17:31:53,014 p=16054 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ***********************************************************
+2023-06-09 17:31:53,023 p=16054 u=ubuntu n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************
+2023-06-09 17:31:54,371 p=16054 u=ubuntu n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.158: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:31:54,402 p=16054 u=ubuntu n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.225: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:31:54,426 p=16054 u=ubuntu n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.50: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:31:54,446 p=16054 u=ubuntu n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.15: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:31:54,448 p=16054 u=ubuntu n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.125: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:31:55,704 p=16054 u=ubuntu n=ansible | ok: [cntl]
+2023-06-09 17:31:55,720 p=16054 u=ubuntu n=ansible | TASK [Import VPC setup variable] *************************************************************************************************************
+2023-06-09 17:31:55,736 p=16054 u=ubuntu n=ansible | ok: [cntl]
+2023-06-09 17:31:55,744 p=16054 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ***************************************************************************************************
+2023-06-09 17:31:56,121 p=16054 u=ubuntu n=ansible | ok: [cntl]
+2023-06-09 17:31:56,137 p=16054 u=ubuntu n=ansible | PLAY RECAP ***********************************************************************************************************************************
+2023-06-09 17:31:56,138 p=16054 u=ubuntu n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:31:56,138 p=16054 u=ubuntu n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:31:56,138 p=16054 u=ubuntu n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:31:56,138 p=16054 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:31:56,139 p=16054 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:31:56,139 p=16054 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:33:40,930 p=16209 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro with yaml plugin: We were unable to read either as JSON
+nor YAML, these are the errors we got from each: JSON: Expecting value: line 1 column 1 (char 0)  Syntax Error while loading YAML.   did not
+find expected <document start>  The error appears to be in '/home/ubuntu/ansible-one/provision-stack/inventory-pro': line 25, column 1, but
+may be elsewhere in the file depending on the exact syntax problem.  The offending line appears to be:  # BEGIN ANSIBLE MANAGED BLOCK web01
+ansible_host=172.20.4.158 ^ here
+
+2023-06-09 17:33:40,931 p=16209 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro with ini plugin: host range must be begin:end or
+begin:end:step
+
+2023-06-09 17:33:40,931 p=16209 u=ubuntu n=ansible | [WARNING]: Unable to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro as an inventory source
+
+2023-06-09 17:33:40,931 p=16209 u=ubuntu n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-06-09 17:33:41,032 p=16209 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ***********************************************************
+2023-06-09 17:33:41,041 p=16209 u=ubuntu n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************
+2023-06-09 17:33:42,376 p=16209 u=ubuntu n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.158: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:33:42,394 p=16209 u=ubuntu n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.225: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:33:42,433 p=16209 u=ubuntu n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.50: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:33:42,464 p=16209 u=ubuntu n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.15: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:33:42,525 p=16209 u=ubuntu n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.125: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:33:43,723 p=16209 u=ubuntu n=ansible | ok: [cntl]
+2023-06-09 17:33:43,738 p=16209 u=ubuntu n=ansible | TASK [Import VPC setup variable] *************************************************************************************************************
+2023-06-09 17:33:43,755 p=16209 u=ubuntu n=ansible | ok: [cntl]
+2023-06-09 17:33:43,763 p=16209 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ***************************************************************************************************
+2023-06-09 17:33:44,138 p=16209 u=ubuntu n=ansible | ok: [cntl]
+2023-06-09 17:33:44,154 p=16209 u=ubuntu n=ansible | PLAY RECAP ***********************************************************************************************************************************
+2023-06-09 17:33:44,154 p=16209 u=ubuntu n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:33:44,154 p=16209 u=ubuntu n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:33:44,155 p=16209 u=ubuntu n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:33:44,155 p=16209 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:33:44,155 p=16209 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:33:44,155 p=16209 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:44:44,590 p=16403 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro with yaml plugin: We were unable to read either as JSON
+nor YAML, these are the errors we got from each: JSON: Expecting value: line 1 column 1 (char 0)  Syntax Error while loading YAML.   did not
+find expected <document start>  The error appears to be in '/home/ubuntu/ansible-one/provision-stack/inventory-pro': line 25, column 1, but
+may be elsewhere in the file depending on the exact syntax problem.  The offending line appears to be:  # BEGIN ANSIBLE MANAGED BLOCK web01
+ansible_host=172.20.4.158 ^ here
+
+2023-06-09 17:44:44,590 p=16403 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro with ini plugin: host range must be begin:end or
+begin:end:step
+
+2023-06-09 17:44:44,590 p=16403 u=ubuntu n=ansible | [WARNING]: Unable to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro as an inventory source
+
+2023-06-09 17:44:44,591 p=16403 u=ubuntu n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-06-09 17:44:44,693 p=16403 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ***********************************************************
+2023-06-09 17:44:44,702 p=16403 u=ubuntu n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************
+2023-06-09 17:44:46,044 p=16403 u=ubuntu n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.225: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:44:46,054 p=16403 u=ubuntu n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.158: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:44:46,072 p=16403 u=ubuntu n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.15: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:44:46,101 p=16403 u=ubuntu n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.50: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:44:46,145 p=16403 u=ubuntu n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.125: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:44:47,425 p=16403 u=ubuntu n=ansible | ok: [cntl]
+2023-06-09 17:44:47,441 p=16403 u=ubuntu n=ansible | TASK [Import VPC setup variable] *************************************************************************************************************
+2023-06-09 17:44:47,458 p=16403 u=ubuntu n=ansible | ok: [cntl]
+2023-06-09 17:44:47,467 p=16403 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ***************************************************************************************************
+2023-06-09 17:44:47,851 p=16403 u=ubuntu n=ansible | ok: [cntl]
+2023-06-09 17:44:47,867 p=16403 u=ubuntu n=ansible | PLAY RECAP ***********************************************************************************************************************************
+2023-06-09 17:44:47,867 p=16403 u=ubuntu n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:44:47,868 p=16403 u=ubuntu n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:44:47,868 p=16403 u=ubuntu n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:44:47,868 p=16403 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:44:47,868 p=16403 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:44:47,869 p=16403 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:55:11,366 p=16570 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro with yaml plugin: We were unable to read either as JSON nor YAML,
+these are the errors we got from each: JSON: Expecting value: line 1 column 1 (char 0)  Syntax Error while loading YAML.   did not find expected
+<document start>  The error appears to be in '/home/ubuntu/ansible-one/provision-stack/inventory-pro': line 25, column 1, but may be elsewhere in the
+file depending on the exact syntax problem.  The offending line appears to be:  # BEGIN ANSIBLE MANAGED BLOCK web01 ansible_host=172.20.4.158 ^ here
+
+2023-06-09 17:55:11,367 p=16570 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro with ini plugin: host range must be begin:end or begin:end:step
+
+2023-06-09 17:55:11,367 p=16570 u=ubuntu n=ansible | [WARNING]: Unable to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro as an inventory source
+
+2023-06-09 17:55:11,367 p=16570 u=ubuntu n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-06-09 17:55:11,469 p=16570 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ***********************************************************************
+2023-06-09 17:55:11,478 p=16570 u=ubuntu n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************
+2023-06-09 17:55:12,798 p=16570 u=ubuntu n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.158: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:55:12,845 p=16570 u=ubuntu n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.15: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:55:12,857 p=16570 u=ubuntu n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.225: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:55:12,903 p=16570 u=ubuntu n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.125: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:55:12,913 p=16570 u=ubuntu n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ubuntu@172.20.4.50: Permission denied (publickey).", "unreachable": true}
+2023-06-09 17:55:14,194 p=16570 u=ubuntu n=ansible | ok: [cntl]
+2023-06-09 17:55:14,211 p=16570 u=ubuntu n=ansible | TASK [Import VPC setup variable] *************************************************************************************************************************
+2023-06-09 17:55:14,228 p=16570 u=ubuntu n=ansible | ok: [cntl]
+2023-06-09 17:55:14,238 p=16570 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ***************************************************************************************************************
+2023-06-09 17:55:14,619 p=16570 u=ubuntu n=ansible | ok: [cntl]
+2023-06-09 17:55:14,635 p=16570 u=ubuntu n=ansible | PLAY RECAP ***********************************************************************************************************************************************
+2023-06-09 17:55:14,636 p=16570 u=ubuntu n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:55:14,636 p=16570 u=ubuntu n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:55:14,636 p=16570 u=ubuntu n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:55:14,636 p=16570 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:55:14,637 p=16570 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-09 17:55:14,637 p=16570 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
