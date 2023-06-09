@@ -168,5 +168,5 @@
     
     - name: Create variables file for vpc output 
       copy:
-        content: "vpc_id: {{ vpcout.vpc.id }}\npubsub1id: {{ pubsub1_out.subnet.id }}\npubsub2id: {{ pubsub2_out.subnet.id }}\npubsub3id: {{ pubsub3_out.subnet.id }}\nprivsub1id: {{ privsub1_out.subnet.id }}\nprivsub2id: {{ privsub2_out.subnet.id }}\nprivsub3id: {{ privsub3_out.subnet.id }}\nigwid: {{ int_gateway_out.gateway_id }}\npub_route_table_id: {{ pub_route_table_out.route_table.id }}\nnat_gateway-id: {{ nat_gateway_out.nat_gateway_id }}\npriv_route_table-id: {{ priv_route_table_out.route_table.id }}"
-        dest: vars/output_vars
+        content: "region: {{ region }}\nvpc_id: {{ vpcout.vpc.id }}\npubsub1id: {{ pubsub1_out.subnet.id }}\npubsub2id: {{ pubsub2_out.subnet.id }}\npubsub3id: {{ pubsub3_out.subnet.id }}\nprivsub1id: {{ privsub1_out.subnet.id }}\nprivsub2id: {{ privsub2_out.subnet.id }}\nprivsub3id: {{ privsub3_out.subnet.id }}\nigwid: {{ int_gateway_out.gateway_id }}\npub_route_table_id: {{ pub_route_table_out.route_table.id }}\nnat_gateway-id: {{ nat_gateway_out.nat_gateway_id }}\npriv_route_table-id: {{ priv_route_table_out.route_table.id }}"
+        dest: vars/vpc-output_vars
