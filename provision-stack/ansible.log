@@ -340,3 +340,69 @@ file depending on the exact syntax problem.  The offending line appears to be:  
 2023-06-09 17:55:14,636 p=16570 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 2023-06-09 17:55:14,637 p=16570 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 2023-06-09 17:55:14,637 p=16570 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-10 00:25:49,743 p=3377 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro with yaml plugin: We were
+unable to read either as JSON nor YAML, these are the errors we got from each: JSON: Expecting value: line 1 column
+1 (char 0)  Syntax Error while loading YAML.   did not find expected <document start>  The error appears to be in
+'/home/ubuntu/ansible-one/provision-stack/inventory-pro': line 25, column 1, but may be elsewhere in the file
+depending on the exact syntax problem.  The offending line appears to be:  # BEGIN ANSIBLE MANAGED BLOCK web01
+ansible_host=172.20.4.86 app01 ansible_host=172.20.4.78 rmq01 ansible_host=172.20.4.44 mc01
+ansible_host=172.20.4.58 db01 ansible_host=172.20.4.155 cntl ansible_host=127.0.0.1 ansible_connection=local ^ here
+
+2023-06-10 00:25:49,744 p=3377 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro with ini plugin: host range
+must be begin:end or begin:end:step
+
+2023-06-10 00:25:49,744 p=3377 u=ubuntu n=ansible | [WARNING]: Unable to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro as an inventory source
+
+2023-06-10 00:25:49,744 p=3377 u=ubuntu n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-06-10 00:25:49,851 p=3377 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] **********************************************
+2023-06-10 00:25:49,861 p=3377 u=ubuntu n=ansible | TASK [Gathering Facts] *********************************************************************************************
+2023-06-10 00:25:51,197 p=3377 u=ubuntu n=ansible | ok: [localhost]
+2023-06-10 00:25:51,214 p=3377 u=ubuntu n=ansible | TASK [Install Jdk, Maven, Git] *************************************************************************************
+2023-06-10 00:25:56,669 p=3377 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2023-06-10 00:25:59,336 p=3377 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2023-06-10 00:26:01,881 p=3377 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2023-06-10 00:26:01,893 p=3377 u=ubuntu n=ansible | TASK [Clone source code from github] *******************************************************************************
+2023-06-10 00:26:02,775 p=3377 u=ubuntu n=ansible | ok: [localhost]
+2023-06-10 00:26:02,786 p=3377 u=ubuntu n=ansible | TASK [Mvn install command to build artifact] ***********************************************************************
+2023-06-10 00:26:02,800 p=3377 u=ubuntu n=ansible | skipping: [localhost]
+2023-06-10 00:26:02,810 p=3377 u=ubuntu n=ansible | TASK [Copy artifact to files directory] ****************************************************************************
+2023-06-10 00:26:04,521 p=3377 u=ubuntu n=ansible | changed: [localhost] => (item=/home/ubuntu/ansible-one/provision-stack/Vprofile-repo/target/vprofile-v2.war)
+2023-06-10 00:26:04,532 p=3377 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] ****************************************************************************
+2023-06-10 00:26:05,124 p=3377 u=ubuntu n=ansible | ok: [localhost]
+2023-06-10 00:26:05,141 p=3377 u=ubuntu n=ansible | PLAY RECAP *********************************************************************************************************
+2023-06-10 00:26:05,141 p=3377 u=ubuntu n=ansible | localhost                  : ok=5    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2023-06-10 00:27:42,276 p=4845 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro with yaml plugin: We were
+unable to read either as JSON nor YAML, these are the errors we got from each: JSON: Expecting value: line 1 column
+1 (char 0)  Syntax Error while loading YAML.   did not find expected <document start>  The error appears to be in
+'/home/ubuntu/ansible-one/provision-stack/inventory-pro': line 25, column 1, but may be elsewhere in the file
+depending on the exact syntax problem.  The offending line appears to be:  # BEGIN ANSIBLE MANAGED BLOCK web01
+ansible_host=172.20.4.86 app01 ansible_host=172.20.4.78 rmq01 ansible_host=172.20.4.44 mc01
+ansible_host=172.20.4.58 db01 ansible_host=172.20.4.155 cntl ansible_host=127.0.0.1 ansible_connection=local ^ here
+
+2023-06-10 00:27:42,276 p=4845 u=ubuntu n=ansible | [WARNING]:  * Failed to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro with ini plugin: host range
+must be begin:end or begin:end:step
+
+2023-06-10 00:27:42,276 p=4845 u=ubuntu n=ansible | [WARNING]: Unable to parse /home/ubuntu/ansible-one/provision-stack/inventory-pro as an inventory source
+
+2023-06-10 00:27:42,276 p=4845 u=ubuntu n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-06-10 00:27:42,381 p=4845 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *********************************
+2023-06-10 00:27:42,392 p=4845 u=ubuntu n=ansible | TASK [Gathering Facts] *********************************************************************************************
+2023-06-10 00:28:28,536 p=4845 u=ubuntu n=ansible | fatal: [web01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.158 port 22: Connection timed out", "unreachable": true}
+2023-06-10 00:28:28,540 p=4845 u=ubuntu n=ansible | fatal: [app01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.225 port 22: Connection timed out", "unreachable": true}
+2023-06-10 00:28:28,553 p=4845 u=ubuntu n=ansible | fatal: [rmq01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.15 port 22: Connection timed out", "unreachable": true}
+2023-06-10 00:28:28,561 p=4845 u=ubuntu n=ansible | fatal: [mc01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.50 port 22: Connection timed out", "unreachable": true}
+2023-06-10 00:28:28,564 p=4845 u=ubuntu n=ansible | fatal: [db01]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.20.4.125 port 22: Connection timed out", "unreachable": true}
+2023-06-10 00:28:29,891 p=4845 u=ubuntu n=ansible | ok: [cntl]
+2023-06-10 00:28:29,907 p=4845 u=ubuntu n=ansible | TASK [Import VPC setup variable] ***********************************************************************************
+2023-06-10 00:28:29,921 p=4845 u=ubuntu n=ansible | ok: [cntl]
+2023-06-10 00:28:29,930 p=4845 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] *************************************************************************
+2023-06-10 00:28:30,295 p=4845 u=ubuntu n=ansible | changed: [cntl]
+2023-06-10 00:28:30,312 p=4845 u=ubuntu n=ansible | PLAY RECAP *********************************************************************************************************
+2023-06-10 00:28:30,313 p=4845 u=ubuntu n=ansible | app01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-10 00:28:30,313 p=4845 u=ubuntu n=ansible | cntl                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-10 00:28:30,313 p=4845 u=ubuntu n=ansible | db01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-10 00:28:30,313 p=4845 u=ubuntu n=ansible | mc01                       : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-10 00:28:30,313 p=4845 u=ubuntu n=ansible | rmq01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-06-10 00:28:30,314 p=4845 u=ubuntu n=ansible | web01                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
